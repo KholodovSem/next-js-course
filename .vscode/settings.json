@@ -1,6 +1,3 @@
 {
-  "editor.formatOnSave": true,
-  "files.autoSave": "onFocusChange",
-  "prettier.enableDebugLogs": true,
-  "prettier.jsxSingleQuote": false
+  "files.autoSave": "onFocusChange"
 }
