@@ -21,11 +21,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return;
     }
 
+    const connectionString = `mongodb+srv://${process.env
+      .mongodb_username!}:${process.env.mongodb_password!}@${process.env
+      .mongodb_cluster!}.l12yekn.mongodb.net/${process.env
+      .mongodb_database!}?retryWrites=true&w=majority`;
+
     let client;
     try {
-      client = await MongoClient.connect(
-        "mongodb+srv://sem1101:12345qwert@cluster0.l12yekn.mongodb.net/my-site?retryWrites=true&w=majority"
-      );
+      client = await MongoClient.connect(connectionString);
     } catch (error) {
       if (error instanceof Error) {
         res.status(500).json({ message: error.message });
